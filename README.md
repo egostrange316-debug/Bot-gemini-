@@ -66,7 +66,7 @@ Haqiqiy kalitlar repoda saqlanmaydi; ular lokal `.env` va Supabase Secrets orqal
 | `TELEGRAM_BOT_TOKEN` | BotFather bergan token |
 | `GEMINI_API_KEY` | Google Gemini API kaliti |
 | `TELEGRAM_WEBHOOK_SECRET` | Kamida 32 belgili tasodifiy maxfiy kalit |
-| `GEMINI_MODEL` | Boshlang‘ich model: `gemini-2.5-flash-lite`; ishga tushirishda kalit bilan mavjudligini tekshiring |
+| `GEMINI_MODEL` | Boshlang‘ich model: `gemini-3.5-flash-lite`; ishga tushirishda kalit bilan mavjudligini tekshiring |
 | `MAX_OUTPUT_TOKENS` | Bir javobning token budjeti, odatda 4096 |
 | `HISTORY_TURNS` | Xotirada saqlanadigan savol-javob juftlari, odatda 12 |
 | `HISTORY_CHAR_LIMIT` | Xotira matni hajmi, odatda 48000 belgi |
@@ -130,3 +130,14 @@ GitHub kodni saqlaydi; botni Supabase Edge Functions bajaradi.
 
 Tayyorlangan sana: 2026-10-16. Haqiqiy kalit va loyiha tanlanganda modelga kirish, tarif
 hamda hosted sozlamalar yana tekshiriladi.
+
+## Deployment holati
+
+Supabase project: `gemini-ai-bot` (`myytzjnihibhtmnwedfe`). Baza va `telegram-bot`
+Edge Function joylangan. Hosted Secrets kiritilishi va Telegram webhook yoqilishi qolgan.
+`gemini-3.5-flash-lite` haqiqiy API so‘rovida javob qaytardi; eski 2.5 Flash Lite modeli
+yangi foydalanuvchilar uchun yopilgani sababli standart model yangilandi.
+
+Security Advisor bergan `RLS enabled, no policy` INFO xabari bu arxitekturada kutilgan:
+jadvallarga faqat serverdagi `service_role` kiradi, `anon` va `authenticated` huquqlari
+bekor qilingan. Izoh: https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy

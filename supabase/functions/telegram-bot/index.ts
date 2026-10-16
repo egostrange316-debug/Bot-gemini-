@@ -16,7 +16,7 @@ if (!/^[A-Za-z0-9_-]{32,256}$/.test(secret)) throw new Error('Webhook secret mus
 const services = makeServices({
   botToken: required('TELEGRAM_BOT_TOKEN'),
   geminiKey: required('GEMINI_API_KEY'),
-  model: Deno.env.get('GEMINI_MODEL') || 'gemini-2.5-flash-lite',
+  model: Deno.env.get('GEMINI_MODEL') || 'gemini-3.5-flash-lite',
   maxTokens: integer('MAX_OUTPUT_TOKENS', 4096, 256, 16384),
   supabaseUrl: required('SUPABASE_URL').replace(/\/$/, ''),
   serviceKey: required('SUPABASE_SERVICE_ROLE_KEY'),
