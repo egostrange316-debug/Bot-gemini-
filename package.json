@@ -1,0 +1,17 @@
+{
+  "name": "gemini-ai-telegram-bot",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "telegram:setup": "node --env-file=.env scripts/setup-telegram.mjs",
+    "telegram:status": "node --env-file=.env scripts/setup-telegram.mjs --status"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "0.5.10"
+  }
+}

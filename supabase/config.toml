@@ -1,0 +1,6 @@
+project_id = "gemini-ai-bot"
+
+[functions.telegram-bot]
+enabled = true
+verify_jwt = false
+entrypoint = "./functions/telegram-bot/index.ts"
